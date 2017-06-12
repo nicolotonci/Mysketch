@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+
+<head>
+  <script src="js/jquery-3.2.1.min.js"></script>
+  <script src="js/bootstrap-colorpicker.min.js"></script>
+  <script src="js/bootstrap-slider.min.js"></script>
+  <script src="js/bootstrap.min.js"></script>
+  <script src="js/script.js"></script>
+  <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+  <link rel="stylesheet" type="text/css" href="css/bootstrap-theme.min.css">
+  <link rel="stylesheet" type="text/css" href="css/bootstrap-colorpicker.min.css">
+  <link rel="stylesheet" type="text/css" href="css/bootstrap-slider.min.css">
+  <link rel="stylesheet" type="text/css" href="css/style.css">
+  <title>MySketch</title>
+</head>
+
+<body>
+  <nav class="navbar navbar-default navbar-fixed-top">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <a class="navbar-brand" href="">
+          <img alt="Brand" src="img/logo.png" height="25">
+        </a>
+      </div>
+      <a href="/" class="btn btn-default navbar-btn glyphicon glyphicon-file"></a>
+      <a class="btn btn-default navbar-btn glyphicon glyphicon-tint" id="cp4"><strong>Color</strong> <span class="caret"></span></a>
+      <div class="btn-group">
+        <button type="button" class="btn btn-default dropdown-toggle glyphicon glyphicon-resize-vertical" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><strong>Size</strong> <span class="caret"></span>
+        </button>
+        <ul class="dropdown-menu">
+          <li>
+            <center>Change the size by slider <br><input id="ex1" data-slider-id='ex1Slider' type="text" data-slider-min="1" data-slider-max="15" data-slider-step="1" data-slider-value="5" /></center><br>
+            <div id="lineSizeDiv"></div>
+          </li>
+        </ul>
+      </div>
+      <div class="btn-group" data-toggle="buttons">
+        <label class="btn btn-default navbar-btn active glyphicon glyphicon-pencil" id="toolPen">
+          <input type="radio" name="tool" >
+        </label>
+        <label class="btn btn-default navbar-btn glyphicon glyphicon-minus" id="toolLine">
+          <input type="radio" name="tool" >
+        </label>
+        <label class="btn btn-default navbar-btn  glyphicon glyphicon-unchecked" id="toolBox">
+          <input type="radio" name="tool" >
+        </label>
+      </div>
+      <div class="btn-group" role="group" aria-label="...">
+        <button type="button" class="btn btn-default navbar-btn glyphicon glyphicon-triangle-left" id="undoButton"></button>
+        <button type="button" class="btn btn-default navbar-btn glyphicon glyphicon-triangle-right" id="redoButton" disabled></button>
+      </div>
+      <div class="navbar-right">
+        <a class="btn btn-default navbar-btn glyphicon glyphicon-save" id="saveLink"></a>
+        <a class="btn btn-default navbar-btn glyphicon glyphicon-link" id="shareLink"></a>
+        <a class="btn btn-default navbar-btn glyphicon glyphicon-question-sign" data-toggle="modal" data-target=".bs-example-modal-lg"></a>
+
+      </div>
+    </div>
+
+  </nav>
+
+  <!-- Info Modal  !-->
+  <div class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel">
+    <div class="modal-dialog modal-lg" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          <h4 class="modal-title" id="myModalLabel">About MySketch</h4>
+        </div>
+        <div class="modal-body">
+          <p>MySketch is a simple, minimalist, collaborative and cross-device sketch block.</p>
+          <p>Project by Nicol&ograve; Tonci - Matricola: 503919</p>
+          <p>E-Mail: <a href="mailto:nicolotonci@tiscali.it">nicolotonci@tiscali.it</a></p>
+          <p>Twitter: @nicolotonci</p>
+          <h3>Mysketch application created by using software with open source:</h3>
+          <h4>Node JS</h4>
+          <p>Node.js is a JavaScript runtime built on Chrome's V8 JavaScript engine. Node.js uses an event-driven, non-blocking I/O model that makes it lightweight and efficient.</p>
+          <p><a href="https://raw.githubusercontent.com/nodejs/node/master/LICENSE" target="_blank">Node.Js Project License Information</a></p>
+          <h4>ExpressJS</h4>
+          <p>Express is a minimal and flexible Node.js web application framework that provides a robust set of features for web and mobile applications.</p>
+          <p>ExpressJs&nbsp;work is licensed under a <a href="http://creativecommons.org/licenses/by-sa/3.0/us/" target="_blank">Creative Commons Attribution-ShareAlike 3.0 United States License</a></p>
+          <h4>Ws</h4>
+          <p>Ws is a simple to use, blazing fast, and thoroughly tested WebSocket client and server implementation.</p>
+          <p><a href="https://github.com/websockets/ws/blob/master/LICENSE" target="_blank">MIT License</a></p>
+          <h4>JQuery</h4>
+          <p>jQuery is a fast, small, and feature-rich JavaScript library. It makes things like HTML document traversal and manipulation, event handling, animation, and Ajax much simpler with an easy-to-use API that works across a multitude of browsers.</p>
+          <p><a href="https://jquery.org/license/" target="_blank">License Information</a></p>
+          <h4>Bootstrap</h4>
+          <p>Bootstrap is the most popular HTML, CSS, and JS framework for developing responsive, mobile first projects on the web. Bootstrap makes front-end web development faster and easier. It's made for folks of all skill levels, devices of all shapes,
+            and projects of all sizes.</p>
+          <p>Code licensed <a href="https://github.com/twbs/bootstrap/blob/master/LICENSE" target="_blank">MIT</a></p>
+          <h4>Bootstrap Slider</h4>
+          <p><a href="https://raw.githubusercontent.com/seiyria/bootstrap-slider/master/LICENSE.md" target="_blank">MIT License</a></p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="canvasDiv"></div>
+</body>
+
+</html>
